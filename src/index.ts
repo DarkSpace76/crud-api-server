@@ -8,7 +8,7 @@ import { parseArgs } from "./parse_args";
 const cpus = os.cpus().length;
 
 const PORT: number = Number(process.env.PORT) || 4000;
-
+export let masterPort;
 export const args = parseArgs();
 export const app = http.createServer(!args['cluster'] ? route : routeCluster);
 
@@ -25,7 +25,7 @@ if (!args['cluster']) {
 
 
         for (let index = 0; index < cpus; index++) {
-            const worker = cluster.fork({ PORT: PORT + index + 1 });
+            const worker = cluster.fork({ PORT: PORT + index + 1, MASTERPORT: PORT });
 
             workers.push({ worker: worker, isActive: false, handler: null });
         }
@@ -40,6 +40,7 @@ if (!args['cluster']) {
 
     } else {
         const processPort = process.env.PORT;
+        masterPort = process.env.MASTERPORT;
 
         app.listen(processPort, () => {
 
@@ -50,5 +51,4 @@ if (!args['cluster']) {
     }
 
 }
-
 

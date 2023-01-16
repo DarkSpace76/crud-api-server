@@ -5,11 +5,14 @@ import { Cmd, ErrorMessage, StatusCode } from "../const";
 import { ResponseHelper } from "../response_helper";
 import cluster from "cluster";
 import http from "http";
+import { masterPort } from "../index";
 
 function httpReq(method, path = '') {
+    console.log(masterPort);
+
     return http.request({
         hostname: 'localhost',
-        port: '4000',
+        port: masterPort,
         path: `/api/users/${path}`,
         method: method,
         headers: {
@@ -34,7 +37,7 @@ function httpReq(method, path = '') {
 export class DataBase {
     private users: User[] = [];
 
-    async creat(user: User): Promise<ResponseHelper<User>> {
+    async creat(user: User,): Promise<ResponseHelper<User>> {
 
         user.id = v1();
 
