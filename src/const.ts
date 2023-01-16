@@ -13,8 +13,8 @@ const enum StatusCode {
     C201 = 201,
     C204 = 204,
     C400 = 400,
-    C404 = 404
-
+    C404 = 404,
+    C500 = 500
 }
 
 export {
