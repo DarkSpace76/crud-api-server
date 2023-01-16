@@ -28,8 +28,8 @@ Run tests scenarios for API
 
 Required fields
 
-(string)
-name — user's name
+
+name — user's name [type: string]
 
 (number)
 age — user's age 
