@@ -4,7 +4,7 @@
         "src/users"
     ],
     "ext": "ts",
-    "exec": "tsc && node ./dist/index.js",
+    "exec": "tsc && node ./dist/src/index.js",
     "events": {
         "start": "cls || clear"
     }

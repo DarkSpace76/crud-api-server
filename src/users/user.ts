@@ -1,8 +1,9 @@
+import { MyError } from "../app_error";
+import { ErrorMessage, StatusCode } from "../const";
 
-import { ERR_BODY_INVALID_FORMAT } from "../const";
 
 export class User {
-    id: string;
+    id?: string;
     name: string;
     age: number;
     hobbies: string[];
@@ -18,13 +19,14 @@ export class User {
     public static getUser(value: string): User {
         let userObject;
         try {
+
             userObject = JSON.parse(value);
         } catch (err) {
-            throw new Error(ERR_BODY_INVALID_FORMAT);
+            throw new MyError(ErrorMessage.ERR_BODY_INVALID_FORMAT, StatusCode.C400);
         }
 
         if (typeof userObject.name !== 'string' || typeof userObject.age !== 'number' || !Array.isArray(userObject.hobbies)) {
-            throw new Error(ERR_BODY_INVALID_FORMAT);
+            throw new MyError(ErrorMessage.ERR_BODY_INVALID_FORMAT, StatusCode.C400);
         }
 
 
@@ -34,10 +36,15 @@ export class User {
             userObject.age,
             userObject.hobbies
         );
+    }
 
-
-
-
+    public static fromJson(value: any): User {
+        return new User(
+            value.id,
+            value.name,
+            value.age,
+            value.hobbies
+        );
     }
 
 }

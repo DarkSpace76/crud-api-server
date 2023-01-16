@@ -17,7 +17,16 @@ const enum StatusCode {
     C500 = 500
 }
 
+const enum Cmd {
+    creat = "creat",
+    getOne = "getOne",
+    getAll = "getAll",
+    update = "update",
+    delete = "delete"
+}
+
 export {
     ErrorMessage,
-    StatusCode
+    StatusCode,
+    Cmd
 }
