@@ -22,11 +22,7 @@ Run cluster mode with load balancer and one in-memory-database for all workers
 
 Run tests scenarios for API
 
-`npm run test` 
-
-or 
-
-`npm test`
+`npm run test`  or  `npm test`
 
 ## API
 
