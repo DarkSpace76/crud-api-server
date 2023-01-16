@@ -31,11 +31,9 @@ Required fields
 
 name — user's name [type: string]
 
-(number)
-age — user's age 
+age — user's age [type:number]
 
-(array of strings, empty array)
-hobbies — user's hobbies 
+hobbies — user's hobbies [type: array of strings]
 
 
 `GET api/users` - to get all users
