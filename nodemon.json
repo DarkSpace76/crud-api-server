@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "src",
+        "src/users"
+    ],
+    "ext": "ts",
+    "exec": "tsc && node ./dist/src/index.js",
+    "events": {
+        "start": "cls || clear"
+    }
+}

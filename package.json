@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-crud-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start:prod": "tsc && node ./dist/src/index.js",
+    "start:multi": "tsc && node ./dist/src/index.js --cluster=enable",
+    "test": "jest --silent --verbose --config ./test/jest-e2e.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ts-jest": "^29.0.5",
+    "uuid": "^9.0.0"
+  }
+}
